@@ -2,7 +2,7 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+      <li class="item border-bottom" v-for="item of list" :key="item.id">
         <img class="item-img" :src="item.imgUrl"/>
         <div class="item-info">
           <p class="item-title">{{ item.title }}</p>
@@ -17,35 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1807/20/20e8b976e7ee4a92a3.img.jpg_200x200_4b90b05f.jpg',
-        title: '东方山水乐园',
-        desc: '暑期清凉游玩圣地，带上全家一起去'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1809/38/384b942cb06598ca3.img.jpg_200x200_a07af985.jpg',
-        title: '乔波冰雪世界',
-        desc: '暑期清凉游玩圣地，带上全家一起去'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1707/56/56dd8f7a275c4921a3.img.jpg_200x200_ec92fa6b.jpg ',
-        title: '兜率天宫',
-        desc: '暑期清凉游玩圣地，带上全家一起去'
-      }, {
-        id: '0004',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1706/33/3312e54d3336baeca3.img.jpg_200x200_ca260c2c.jpg',
-        title: '五泄丛林探险漂流',
-        desc: '暑期清凉游玩圣地，带上全家一起去'
-      }, {
-        id: '0005',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/201301/06/ddb6a787c7b966df93835fbb.png_200x200_b91ad362.png',
-        title: '绍兴古城',
-        desc: '暑期清凉游玩圣地，带上全家一起去'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
