@@ -45,6 +45,9 @@ export default {
   },
   activated () {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () {
+    window.removeEventListener('scroll', this.handleScroll) // 对页面滑动的全局事件进行解绑， deactivated钩子函数在当前页面即将被替换成新页面时执行
   }
 }
 </script>
