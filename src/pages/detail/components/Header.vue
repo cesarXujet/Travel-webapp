@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     handleScroll () {
-      const top = document.documentElement.scrollTop
+      const top = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop
       if (top > 60) {
         let opacity = top / 140
         opacity = opacity > 1 ? 1 : opacity
@@ -43,11 +43,11 @@ export default {
       }
     }
   },
-  activated () {
+  created () {
     window.addEventListener('scroll', this.handleScroll)
   },
-  deactivated () {
-    window.removeEventListener('scroll', this.handleScroll) // 对页面滑动的全局事件进行解绑， deactivated钩子函数在当前页面即将被替换成新页面时执行
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.handleScroll) // 对页面滑动的全局事件进行解绑， 此钩子函数在当前页面即将被替换成新页面时执行
   }
 }
 </script>
